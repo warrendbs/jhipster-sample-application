@@ -1,0 +1,195 @@
+entity ImpactMatrix {
+    impactMatrixNumber Long
+    status Integer
+    revision String
+    reviser String
+    revisionDescription String
+    dateRevised String
+    title String
+    isAutoLayoutEnabled Boolean
+}
+entity Context {
+	type String
+    name String
+    status  Integer
+}
+relationship OneToMany{
+	ImpactMatrix to Context
+}
+entity Bom {
+	status Integer
+}
+relationship OneToMany {
+	ImpactMatrix to Bom
+}
+entity BomSource {
+	type String
+}
+relationship OneToOne {
+	Bom to BomSource
+}
+entity BomIntention {
+	type String
+}
+relationship OneToOne {
+	Bom to BomIntention
+}
+entity BomChild{
+	productId String
+    revision String
+    quantity Double
+    relationType String
+}
+relationship ManyToMany{
+	BomSource to BomChild
+    BomIntention to BomChild
+}
+entity ItemReference{
+	referenceId Long
+    type String
+}
+relationship ManyToMany{
+	Bom to ItemReference
+}
+entity ReleasePackage{
+	title String
+    releasePackageNumber String
+    releasePackageTitle String
+    status String
+    ecn String
+}
+relationship ManyToMany{
+	BomIntention to ReleasePackage
+}
+entity DocumentType{
+	Desctiption String
+}
+entity Document{
+	title String
+    status String
+}
+relationship OneToMany{
+	ImpactMatrix to Document
+    DocumentType to Document
+}
+relationship OneToOne{
+	Document to DocumentSource
+    Document to DocumentIntention
+}
+entity DocumentSource{
+	name String
+    description String
+    changeIndicator Boolean
+    type String
+    subtype String
+    group String
+    sheet String
+}
+entity DocumentIntention{
+	name String
+    description String
+    changeIndicator Boolean
+    type String
+    subtype String
+    group String
+    sheet String
+}
+relationship ManyToMany {
+	DocumentIntention to ReleasePackage
+    Document to ItemReference
+}
+
+entity Part {
+	status String
+    changeIndication Boolean
+    isParentPartBomChanged Boolean
+}
+relationship OneToMany{
+	ImpactMatrix to Part
+}
+relationship OneToOne{
+	Part to PartSource
+    Part to PartIntention
+}
+entity PartSource {
+	productId Long
+    revision String
+    name String
+    description String
+    vqi String
+    procurementType String
+    materialType String
+    serialNumberProfile String
+    criticalConfigurationItemIndicator Boolean
+    regularPartIndicator String
+    historyIndicator String
+    crossPlantStatus String
+    crossPlantStatusToBe String
+    toolPackCategory String
+    tcChangeControl Boolean
+    sapChangeControl Boolean
+    allowBomRestructuring Boolean
+    unitOfMeasure String
+    itemUsage String
+    isPhantom Boolean
+    failureRate String
+    inHouseProductionTime Long
+    slAbcCode String
+    productionPlant String
+    limitedDriving12Nc String
+    limitedDriving12Ncflag String
+    multiPlant String
+    type String
+    successorPartId Long
+}
+entity PlantSpecific {
+	objectDependancy String
+    refMaterial String
+    isDiscontinued Boolean
+}
+relationship ManyToMany{
+	PartSource to PlantSpecific
+    PartIntention to PlantSpecific
+}
+entity PartIntention {
+	productId Long
+    revision String
+    name String
+    description String
+    vqi String
+    procurementType String
+    materialType String
+    serialNumberProfile String
+    criticalConfigurationItemIndicator Boolean
+    regularPartIndicator String
+    historyIndicator String
+    crossPlantStatus String
+    crossPlantStatusToBe String
+    toolPackCategory String
+    tcChangeControl Boolean
+    sapChangeControl Boolean
+    allowBomRestructuring Boolean
+    unitOfMeasure String
+    itemUsage String
+    isPhantom Boolean
+    failureRate String
+    inHouseProductionTime Long
+    slAbcCode String
+    productionPlant String
+    limitedDriving12Nc String
+    limitedDriving12Ncflag String
+    multiPlant String
+    type String
+    successorPartId Long
+}
+relationship ManyToMany{
+	PartIntention to ItemReference
+    PartIntention to ReleasePackage
+}
+
+
+
+
+
+
+
