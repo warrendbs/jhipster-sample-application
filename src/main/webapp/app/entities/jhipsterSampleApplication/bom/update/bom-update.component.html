@@ -1,0 +1,99 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-bom-heading" data-cy="BomCreateUpdateHeading">Create or edit a Bom</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_status">Status</label>
+          <input type="number" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_bomSource">Bom Source</label>
+          <select class="form-control" id="field_bomSource" data-cy="bomSource" name="bomSource" formControlName="bomSource">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="bomSourceOption.id === editForm.get('bomSource')!.value?.id ? editForm.get('bomSource')!.value : bomSourceOption"
+              *ngFor="let bomSourceOption of bomSourcesCollection; trackBy: trackBomSourceById"
+            >
+              {{ bomSourceOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_bomIntention">Bom Intention</label>
+          <select class="form-control" id="field_bomIntention" data-cy="bomIntention" name="bomIntention" formControlName="bomIntention">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                bomIntentionOption.id === editForm.get('bomIntention')!.value?.id ? editForm.get('bomIntention')!.value : bomIntentionOption
+              "
+              *ngFor="let bomIntentionOption of bomIntentionsCollection; trackBy: trackBomIntentionById"
+            >
+              {{ bomIntentionOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_itemReferences">Item Reference</label>
+          <select
+            class="form-control"
+            id="field_itemReferences"
+            data-cy="itemReference"
+            multiple
+            name="itemReferences"
+            formControlName="itemReferences"
+          >
+            <option
+              [ngValue]="getSelectedItemReference(itemReferenceOption, editForm.get('itemReferences')!.value)"
+              *ngFor="let itemReferenceOption of itemReferencesSharedCollection; trackBy: trackItemReferenceById"
+            >
+              {{ itemReferenceOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_impactMatrix">Impact Matrix</label>
+          <select class="form-control" id="field_impactMatrix" data-cy="impactMatrix" name="impactMatrix" formControlName="impactMatrix">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                impactMatrixOption.id === editForm.get('impactMatrix')!.value?.id ? editForm.get('impactMatrix')!.value : impactMatrixOption
+              "
+              *ngFor="let impactMatrixOption of impactMatricesSharedCollection; trackBy: trackImpactMatrixById"
+            >
+              {{ impactMatrixOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

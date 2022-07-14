@@ -1,0 +1,49 @@
+{
+  "applications": "*",
+  "changelogDate": "20220714070413",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "item_reference",
+  "fields": [
+    {
+      "fieldName": "referenceId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "jhipsterSampleApplication",
+  "name": "ItemReference",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "bom",
+      "otherEntityRelationshipName": "itemReference",
+      "ownerSide": false,
+      "relationshipName": "bom",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "document",
+      "otherEntityRelationshipName": "itemReference",
+      "ownerSide": false,
+      "relationshipName": "document",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "partIntention",
+      "otherEntityRelationshipName": "itemReference",
+      "ownerSide": false,
+      "relationshipName": "partIntention",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

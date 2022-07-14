@@ -1,0 +1,155 @@
+<div>
+  <h2 id="page-heading" data-cy="PartIntentionHeading">
+    <span>Part Intentions</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-part-intention"
+        [routerLink]="['/jhipstersampleapplication/part-intention/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Part Intention </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="partIntentions?.length === 0">
+    <span>No partIntentions found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="partIntentions && partIntentions.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span>ID</span></th>
+          <th scope="col"><span>Product Id</span></th>
+          <th scope="col"><span>Revision</span></th>
+          <th scope="col"><span>Name</span></th>
+          <th scope="col"><span>Description</span></th>
+          <th scope="col"><span>Vqi</span></th>
+          <th scope="col"><span>Procurement Type</span></th>
+          <th scope="col"><span>Material Type</span></th>
+          <th scope="col"><span>Serial Number Profile</span></th>
+          <th scope="col"><span>Critical Configuration Item Indicator</span></th>
+          <th scope="col"><span>Regular Part Indicator</span></th>
+          <th scope="col"><span>History Indicator</span></th>
+          <th scope="col"><span>Cross Plant Status</span></th>
+          <th scope="col"><span>Cross Plant Status To Be</span></th>
+          <th scope="col"><span>Tool Pack Category</span></th>
+          <th scope="col"><span>Tc Change Control</span></th>
+          <th scope="col"><span>Sap Change Control</span></th>
+          <th scope="col"><span>Allow Bom Restructuring</span></th>
+          <th scope="col"><span>Unit Of Measure</span></th>
+          <th scope="col"><span>Item Usage</span></th>
+          <th scope="col"><span>Is Phantom</span></th>
+          <th scope="col"><span>Failure Rate</span></th>
+          <th scope="col"><span>In House Production Time</span></th>
+          <th scope="col"><span>Sl Abc Code</span></th>
+          <th scope="col"><span>Production Plant</span></th>
+          <th scope="col"><span>Limited Driving 12 Nc</span></th>
+          <th scope="col"><span>Limited Driving 12 Ncflag</span></th>
+          <th scope="col"><span>Multi Plant</span></th>
+          <th scope="col"><span>Type</span></th>
+          <th scope="col"><span>Successor Part Id</span></th>
+          <th scope="col"><span>Plant Specific</span></th>
+          <th scope="col"><span>Item Reference</span></th>
+          <th scope="col"><span>Release Package</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let partIntention of partIntentions; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/jhipstersampleapplication/part-intention', partIntention.id, 'view']">{{ partIntention.id }}</a>
+          </td>
+          <td>{{ partIntention.productId }}</td>
+          <td>{{ partIntention.revision }}</td>
+          <td>{{ partIntention.name }}</td>
+          <td>{{ partIntention.description }}</td>
+          <td>{{ partIntention.vqi }}</td>
+          <td>{{ partIntention.procurementType }}</td>
+          <td>{{ partIntention.materialType }}</td>
+          <td>{{ partIntention.serialNumberProfile }}</td>
+          <td>{{ partIntention.criticalConfigurationItemIndicator }}</td>
+          <td>{{ partIntention.regularPartIndicator }}</td>
+          <td>{{ partIntention.historyIndicator }}</td>
+          <td>{{ partIntention.crossPlantStatus }}</td>
+          <td>{{ partIntention.crossPlantStatusToBe }}</td>
+          <td>{{ partIntention.toolPackCategory }}</td>
+          <td>{{ partIntention.tcChangeControl }}</td>
+          <td>{{ partIntention.sapChangeControl }}</td>
+          <td>{{ partIntention.allowBomRestructuring }}</td>
+          <td>{{ partIntention.unitOfMeasure }}</td>
+          <td>{{ partIntention.itemUsage }}</td>
+          <td>{{ partIntention.isPhantom }}</td>
+          <td>{{ partIntention.failureRate }}</td>
+          <td>{{ partIntention.inHouseProductionTime }}</td>
+          <td>{{ partIntention.slAbcCode }}</td>
+          <td>{{ partIntention.productionPlant }}</td>
+          <td>{{ partIntention.limitedDriving12Nc }}</td>
+          <td>{{ partIntention.limitedDriving12Ncflag }}</td>
+          <td>{{ partIntention.multiPlant }}</td>
+          <td>{{ partIntention.type }}</td>
+          <td>{{ partIntention.successorPartId }}</td>
+          <td>
+            <span *ngFor="let plantSpecific of partIntention.plantSpecifics; let last = last">
+              <a class="form-control-static" [routerLink]="['/plant-specific', plantSpecific.id, 'view']">{{ plantSpecific.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td>
+            <span *ngFor="let itemReference of partIntention.itemReferences; let last = last">
+              <a class="form-control-static" [routerLink]="['/item-reference', itemReference.id, 'view']">{{ itemReference.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td>
+            <span *ngFor="let releasePackage of partIntention.releasePackages; let last = last">
+              <a class="form-control-static" [routerLink]="['/release-package', releasePackage.id, 'view']">{{ releasePackage.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/jhipstersampleapplication/part-intention', partIntention.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/jhipstersampleapplication/part-intention', partIntention.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(partIntention)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

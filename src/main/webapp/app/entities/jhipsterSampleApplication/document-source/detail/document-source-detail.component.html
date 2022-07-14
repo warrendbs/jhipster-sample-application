@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="documentSource">
+      <h2 data-cy="documentSourceDetailsHeading"><span>Document Source</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ documentSource.id }}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+          <span>{{ documentSource.name }}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+          <span>{{ documentSource.description }}</span>
+        </dd>
+        <dt><span>Change Indicator</span></dt>
+        <dd>
+          <span>{{ documentSource.changeIndicator }}</span>
+        </dd>
+        <dt><span>Type</span></dt>
+        <dd>
+          <span>{{ documentSource.type }}</span>
+        </dd>
+        <dt><span>Subtype</span></dt>
+        <dd>
+          <span>{{ documentSource.subtype }}</span>
+        </dd>
+        <dt><span>Group</span></dt>
+        <dd>
+          <span>{{ documentSource.group }}</span>
+        </dd>
+        <dt><span>Sheet</span></dt>
+        <dd>
+          <span>{{ documentSource.sheet }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/jhipstersampleapplication/document-source', documentSource.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

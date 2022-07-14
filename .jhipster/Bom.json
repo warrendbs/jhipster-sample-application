@@ -1,0 +1,51 @@
+{
+  "applications": "*",
+  "changelogDate": "20220714070409",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "bom",
+  "fields": [
+    {
+      "fieldName": "status",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "jhipsterSampleApplication",
+  "name": "Bom",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "bomSource",
+      "otherEntityRelationshipName": "bom",
+      "ownerSide": true,
+      "relationshipName": "bomSource",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "bomIntention",
+      "otherEntityRelationshipName": "bom",
+      "ownerSide": true,
+      "relationshipName": "bomIntention",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "itemReference",
+      "otherEntityRelationshipName": "bom",
+      "ownerSide": true,
+      "relationshipName": "itemReference",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "impactMatrix",
+      "otherEntityRelationshipName": "bom",
+      "relationshipName": "impactMatrix",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,76 @@
+{
+  "applications": "*",
+  "changelogDate": "20220714070407",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "impact_matrix",
+  "fields": [
+    {
+      "fieldName": "impactMatrixNumber",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "revision",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "reviser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "revisionDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateRevised",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isAutoLayoutEnabled",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "jhipsterSampleApplication",
+  "name": "ImpactMatrix",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "context",
+      "otherEntityRelationshipName": "impactMatrix",
+      "relationshipName": "context",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "bom",
+      "otherEntityRelationshipName": "impactMatrix",
+      "relationshipName": "bom",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "document",
+      "otherEntityRelationshipName": "impactMatrix",
+      "relationshipName": "document",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "part",
+      "otherEntityRelationshipName": "impactMatrix",
+      "relationshipName": "part",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

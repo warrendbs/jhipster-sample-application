@@ -1,0 +1,61 @@
+{
+  "applications": "*",
+  "changelogDate": "20220714070416",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "document",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "jhipsterSampleApplication",
+  "name": "Document",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "documentSource",
+      "otherEntityRelationshipName": "document",
+      "ownerSide": true,
+      "relationshipName": "documentSource",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "documentIntention",
+      "otherEntityRelationshipName": "document",
+      "ownerSide": true,
+      "relationshipName": "documentIntention",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "itemReference",
+      "otherEntityRelationshipName": "document",
+      "ownerSide": true,
+      "relationshipName": "itemReference",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "impactMatrix",
+      "otherEntityRelationshipName": "document",
+      "relationshipName": "impactMatrix",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "documentType",
+      "otherEntityRelationshipName": "document",
+      "relationshipName": "documentType",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

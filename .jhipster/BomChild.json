@@ -1,0 +1,50 @@
+{
+  "applications": "*",
+  "changelogDate": "20220714070412",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "bom_child",
+  "fields": [
+    {
+      "fieldName": "productId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "revision",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "relationType",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "jhipsterSampleApplication",
+  "name": "BomChild",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "bomSource",
+      "otherEntityRelationshipName": "bomChild",
+      "ownerSide": false,
+      "relationshipName": "bomSource",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "bomIntention",
+      "otherEntityRelationshipName": "bomChild",
+      "ownerSide": false,
+      "relationshipName": "bomIntention",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

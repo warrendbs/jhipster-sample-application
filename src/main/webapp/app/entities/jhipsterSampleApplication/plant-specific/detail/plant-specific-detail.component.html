@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="plantSpecific">
+      <h2 data-cy="plantSpecificDetailsHeading"><span>Plant Specific</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ plantSpecific.id }}</span>
+        </dd>
+        <dt><span>Object Dependancy</span></dt>
+        <dd>
+          <span>{{ plantSpecific.objectDependancy }}</span>
+        </dd>
+        <dt><span>Ref Material</span></dt>
+        <dd>
+          <span>{{ plantSpecific.refMaterial }}</span>
+        </dd>
+        <dt><span>Is Discontinued</span></dt>
+        <dd>
+          <span>{{ plantSpecific.isDiscontinued }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/jhipstersampleapplication/plant-specific', plantSpecific.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

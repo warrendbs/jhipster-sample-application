@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="bomChild">
+      <h2 data-cy="bomChildDetailsHeading"><span>Bom Child</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ bomChild.id }}</span>
+        </dd>
+        <dt><span>Product Id</span></dt>
+        <dd>
+          <span>{{ bomChild.productId }}</span>
+        </dd>
+        <dt><span>Revision</span></dt>
+        <dd>
+          <span>{{ bomChild.revision }}</span>
+        </dd>
+        <dt><span>Quantity</span></dt>
+        <dd>
+          <span>{{ bomChild.quantity }}</span>
+        </dd>
+        <dt><span>Relation Type</span></dt>
+        <dd>
+          <span>{{ bomChild.relationType }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/jhipstersampleapplication/bom-child', bomChild.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,103 @@
+<div>
+  <h2 id="page-heading" data-cy="BomHeading">
+    <span>Boms</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-bom"
+        [routerLink]="['/jhipstersampleapplication/bom/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Bom </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="boms?.length === 0">
+    <span>No boms found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="boms && boms.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span>ID</span></th>
+          <th scope="col"><span>Status</span></th>
+          <th scope="col"><span>Bom Source</span></th>
+          <th scope="col"><span>Bom Intention</span></th>
+          <th scope="col"><span>Item Reference</span></th>
+          <th scope="col"><span>Impact Matrix</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bom of boms; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/jhipstersampleapplication/bom', bom.id, 'view']">{{ bom.id }}</a>
+          </td>
+          <td>{{ bom.status }}</td>
+          <td>
+            <div *ngIf="bom.bomSource">
+              <a [routerLink]="['/bom-source', bom.bomSource?.id, 'view']">{{ bom.bomSource?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="bom.bomIntention">
+              <a [routerLink]="['/bom-intention', bom.bomIntention?.id, 'view']">{{ bom.bomIntention?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <span *ngFor="let itemReference of bom.itemReferences; let last = last">
+              <a class="form-control-static" [routerLink]="['/item-reference', itemReference.id, 'view']">{{ itemReference.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td>
+            <div *ngIf="bom.impactMatrix">
+              <a [routerLink]="['/impact-matrix', bom.impactMatrix?.id, 'view']">{{ bom.impactMatrix?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/jhipstersampleapplication/bom', bom.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/jhipstersampleapplication/bom', bom.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(bom)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+{
+  "applications": "*",
+  "changelogDate": "20220714070415",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "document_type",
+  "fields": [
+    {
+      "fieldName": "desctiption",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "jhipsterSampleApplication",
+  "name": "DocumentType",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "document",
+      "otherEntityRelationshipName": "documentType",
+      "relationshipName": "document",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

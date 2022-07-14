@@ -1,0 +1,343 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-part-source-heading" data-cy="PartSourceCreateUpdateHeading">Create or edit a Part Source</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_productId">Product Id</label>
+          <input type="number" class="form-control" name="productId" id="field_productId" data-cy="productId" formControlName="productId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_revision">Revision</label>
+          <input type="text" class="form-control" name="revision" id="field_revision" data-cy="revision" formControlName="revision" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_vqi">Vqi</label>
+          <input type="text" class="form-control" name="vqi" id="field_vqi" data-cy="vqi" formControlName="vqi" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_procurementType">Procurement Type</label>
+          <input
+            type="text"
+            class="form-control"
+            name="procurementType"
+            id="field_procurementType"
+            data-cy="procurementType"
+            formControlName="procurementType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_materialType">Material Type</label>
+          <input
+            type="text"
+            class="form-control"
+            name="materialType"
+            id="field_materialType"
+            data-cy="materialType"
+            formControlName="materialType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_serialNumberProfile">Serial Number Profile</label>
+          <input
+            type="text"
+            class="form-control"
+            name="serialNumberProfile"
+            id="field_serialNumberProfile"
+            data-cy="serialNumberProfile"
+            formControlName="serialNumberProfile"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_criticalConfigurationItemIndicator">Critical Configuration Item Indicator</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="criticalConfigurationItemIndicator"
+            id="field_criticalConfigurationItemIndicator"
+            data-cy="criticalConfigurationItemIndicator"
+            formControlName="criticalConfigurationItemIndicator"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_regularPartIndicator">Regular Part Indicator</label>
+          <input
+            type="text"
+            class="form-control"
+            name="regularPartIndicator"
+            id="field_regularPartIndicator"
+            data-cy="regularPartIndicator"
+            formControlName="regularPartIndicator"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_historyIndicator">History Indicator</label>
+          <input
+            type="text"
+            class="form-control"
+            name="historyIndicator"
+            id="field_historyIndicator"
+            data-cy="historyIndicator"
+            formControlName="historyIndicator"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_crossPlantStatus">Cross Plant Status</label>
+          <input
+            type="text"
+            class="form-control"
+            name="crossPlantStatus"
+            id="field_crossPlantStatus"
+            data-cy="crossPlantStatus"
+            formControlName="crossPlantStatus"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_crossPlantStatusToBe">Cross Plant Status To Be</label>
+          <input
+            type="text"
+            class="form-control"
+            name="crossPlantStatusToBe"
+            id="field_crossPlantStatusToBe"
+            data-cy="crossPlantStatusToBe"
+            formControlName="crossPlantStatusToBe"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_toolPackCategory">Tool Pack Category</label>
+          <input
+            type="text"
+            class="form-control"
+            name="toolPackCategory"
+            id="field_toolPackCategory"
+            data-cy="toolPackCategory"
+            formControlName="toolPackCategory"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_tcChangeControl">Tc Change Control</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="tcChangeControl"
+            id="field_tcChangeControl"
+            data-cy="tcChangeControl"
+            formControlName="tcChangeControl"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_sapChangeControl">Sap Change Control</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="sapChangeControl"
+            id="field_sapChangeControl"
+            data-cy="sapChangeControl"
+            formControlName="sapChangeControl"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_allowBomRestructuring">Allow Bom Restructuring</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="allowBomRestructuring"
+            id="field_allowBomRestructuring"
+            data-cy="allowBomRestructuring"
+            formControlName="allowBomRestructuring"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_unitOfMeasure">Unit Of Measure</label>
+          <input
+            type="text"
+            class="form-control"
+            name="unitOfMeasure"
+            id="field_unitOfMeasure"
+            data-cy="unitOfMeasure"
+            formControlName="unitOfMeasure"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_itemUsage">Item Usage</label>
+          <input type="text" class="form-control" name="itemUsage" id="field_itemUsage" data-cy="itemUsage" formControlName="itemUsage" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_isPhantom">Is Phantom</label>
+          <input type="checkbox" class="form-check" name="isPhantom" id="field_isPhantom" data-cy="isPhantom" formControlName="isPhantom" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_failureRate">Failure Rate</label>
+          <input
+            type="text"
+            class="form-control"
+            name="failureRate"
+            id="field_failureRate"
+            data-cy="failureRate"
+            formControlName="failureRate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_inHouseProductionTime">In House Production Time</label>
+          <input
+            type="number"
+            class="form-control"
+            name="inHouseProductionTime"
+            id="field_inHouseProductionTime"
+            data-cy="inHouseProductionTime"
+            formControlName="inHouseProductionTime"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_slAbcCode">Sl Abc Code</label>
+          <input type="text" class="form-control" name="slAbcCode" id="field_slAbcCode" data-cy="slAbcCode" formControlName="slAbcCode" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_productionPlant">Production Plant</label>
+          <input
+            type="text"
+            class="form-control"
+            name="productionPlant"
+            id="field_productionPlant"
+            data-cy="productionPlant"
+            formControlName="productionPlant"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_limitedDriving12Nc">Limited Driving 12 Nc</label>
+          <input
+            type="text"
+            class="form-control"
+            name="limitedDriving12Nc"
+            id="field_limitedDriving12Nc"
+            data-cy="limitedDriving12Nc"
+            formControlName="limitedDriving12Nc"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_limitedDriving12Ncflag">Limited Driving 12 Ncflag</label>
+          <input
+            type="text"
+            class="form-control"
+            name="limitedDriving12Ncflag"
+            id="field_limitedDriving12Ncflag"
+            data-cy="limitedDriving12Ncflag"
+            formControlName="limitedDriving12Ncflag"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_multiPlant">Multi Plant</label>
+          <input
+            type="text"
+            class="form-control"
+            name="multiPlant"
+            id="field_multiPlant"
+            data-cy="multiPlant"
+            formControlName="multiPlant"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_type">Type</label>
+          <input type="text" class="form-control" name="type" id="field_type" data-cy="type" formControlName="type" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_successorPartId">Successor Part Id</label>
+          <input
+            type="number"
+            class="form-control"
+            name="successorPartId"
+            id="field_successorPartId"
+            data-cy="successorPartId"
+            formControlName="successorPartId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_plantSpecifics">Plant Specific</label>
+          <select
+            class="form-control"
+            id="field_plantSpecifics"
+            data-cy="plantSpecific"
+            multiple
+            name="plantSpecifics"
+            formControlName="plantSpecifics"
+          >
+            <option
+              [ngValue]="getSelectedPlantSpecific(plantSpecificOption, editForm.get('plantSpecifics')!.value)"
+              *ngFor="let plantSpecificOption of plantSpecificsSharedCollection; trackBy: trackPlantSpecificById"
+            >
+              {{ plantSpecificOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

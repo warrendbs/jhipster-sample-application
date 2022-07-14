@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="bomIntention">
+      <h2 data-cy="bomIntentionDetailsHeading"><span>Bom Intention</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ bomIntention.id }}</span>
+        </dd>
+        <dt><span>Type</span></dt>
+        <dd>
+          <span>{{ bomIntention.type }}</span>
+        </dd>
+        <dt><span>Bom Child</span></dt>
+        <dd>
+          <span *ngFor="let bomChild of bomIntention.bomChildren; let last = last">
+            <a [routerLink]="['/bom-child', bomChild?.id, 'view']">{{ bomChild.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Release Package</span></dt>
+        <dd>
+          <span *ngFor="let releasePackage of bomIntention.releasePackages; let last = last">
+            <a [routerLink]="['/release-package', releasePackage?.id, 'view']">{{ releasePackage.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/jhipstersampleapplication/bom-intention', bomIntention.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,100 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-impact-matrix-heading" data-cy="ImpactMatrixCreateUpdateHeading">Create or edit a Impact Matrix</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_impactMatrixNumber">Impact Matrix Number</label>
+          <input
+            type="number"
+            class="form-control"
+            name="impactMatrixNumber"
+            id="field_impactMatrixNumber"
+            data-cy="impactMatrixNumber"
+            formControlName="impactMatrixNumber"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_status">Status</label>
+          <input type="number" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_revision">Revision</label>
+          <input type="text" class="form-control" name="revision" id="field_revision" data-cy="revision" formControlName="revision" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_reviser">Reviser</label>
+          <input type="text" class="form-control" name="reviser" id="field_reviser" data-cy="reviser" formControlName="reviser" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_revisionDescription">Revision Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="revisionDescription"
+            id="field_revisionDescription"
+            data-cy="revisionDescription"
+            formControlName="revisionDescription"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_dateRevised">Date Revised</label>
+          <input
+            type="text"
+            class="form-control"
+            name="dateRevised"
+            id="field_dateRevised"
+            data-cy="dateRevised"
+            formControlName="dateRevised"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_title">Title</label>
+          <input type="text" class="form-control" name="title" id="field_title" data-cy="title" formControlName="title" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_isAutoLayoutEnabled">Is Auto Layout Enabled</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isAutoLayoutEnabled"
+            id="field_isAutoLayoutEnabled"
+            data-cy="isAutoLayoutEnabled"
+            formControlName="isAutoLayoutEnabled"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

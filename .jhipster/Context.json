@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20220714070408",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "context",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "jhipsterSampleApplication",
+  "name": "Context",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "impactMatrix",
+      "otherEntityRelationshipName": "context",
+      "relationshipName": "impactMatrix",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

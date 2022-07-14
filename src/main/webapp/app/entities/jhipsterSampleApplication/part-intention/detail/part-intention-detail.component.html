@@ -1,0 +1,165 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="partIntention">
+      <h2 data-cy="partIntentionDetailsHeading"><span>Part Intention</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ partIntention.id }}</span>
+        </dd>
+        <dt><span>Product Id</span></dt>
+        <dd>
+          <span>{{ partIntention.productId }}</span>
+        </dd>
+        <dt><span>Revision</span></dt>
+        <dd>
+          <span>{{ partIntention.revision }}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+          <span>{{ partIntention.name }}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+          <span>{{ partIntention.description }}</span>
+        </dd>
+        <dt><span>Vqi</span></dt>
+        <dd>
+          <span>{{ partIntention.vqi }}</span>
+        </dd>
+        <dt><span>Procurement Type</span></dt>
+        <dd>
+          <span>{{ partIntention.procurementType }}</span>
+        </dd>
+        <dt><span>Material Type</span></dt>
+        <dd>
+          <span>{{ partIntention.materialType }}</span>
+        </dd>
+        <dt><span>Serial Number Profile</span></dt>
+        <dd>
+          <span>{{ partIntention.serialNumberProfile }}</span>
+        </dd>
+        <dt><span>Critical Configuration Item Indicator</span></dt>
+        <dd>
+          <span>{{ partIntention.criticalConfigurationItemIndicator }}</span>
+        </dd>
+        <dt><span>Regular Part Indicator</span></dt>
+        <dd>
+          <span>{{ partIntention.regularPartIndicator }}</span>
+        </dd>
+        <dt><span>History Indicator</span></dt>
+        <dd>
+          <span>{{ partIntention.historyIndicator }}</span>
+        </dd>
+        <dt><span>Cross Plant Status</span></dt>
+        <dd>
+          <span>{{ partIntention.crossPlantStatus }}</span>
+        </dd>
+        <dt><span>Cross Plant Status To Be</span></dt>
+        <dd>
+          <span>{{ partIntention.crossPlantStatusToBe }}</span>
+        </dd>
+        <dt><span>Tool Pack Category</span></dt>
+        <dd>
+          <span>{{ partIntention.toolPackCategory }}</span>
+        </dd>
+        <dt><span>Tc Change Control</span></dt>
+        <dd>
+          <span>{{ partIntention.tcChangeControl }}</span>
+        </dd>
+        <dt><span>Sap Change Control</span></dt>
+        <dd>
+          <span>{{ partIntention.sapChangeControl }}</span>
+        </dd>
+        <dt><span>Allow Bom Restructuring</span></dt>
+        <dd>
+          <span>{{ partIntention.allowBomRestructuring }}</span>
+        </dd>
+        <dt><span>Unit Of Measure</span></dt>
+        <dd>
+          <span>{{ partIntention.unitOfMeasure }}</span>
+        </dd>
+        <dt><span>Item Usage</span></dt>
+        <dd>
+          <span>{{ partIntention.itemUsage }}</span>
+        </dd>
+        <dt><span>Is Phantom</span></dt>
+        <dd>
+          <span>{{ partIntention.isPhantom }}</span>
+        </dd>
+        <dt><span>Failure Rate</span></dt>
+        <dd>
+          <span>{{ partIntention.failureRate }}</span>
+        </dd>
+        <dt><span>In House Production Time</span></dt>
+        <dd>
+          <span>{{ partIntention.inHouseProductionTime }}</span>
+        </dd>
+        <dt><span>Sl Abc Code</span></dt>
+        <dd>
+          <span>{{ partIntention.slAbcCode }}</span>
+        </dd>
+        <dt><span>Production Plant</span></dt>
+        <dd>
+          <span>{{ partIntention.productionPlant }}</span>
+        </dd>
+        <dt><span>Limited Driving 12 Nc</span></dt>
+        <dd>
+          <span>{{ partIntention.limitedDriving12Nc }}</span>
+        </dd>
+        <dt><span>Limited Driving 12 Ncflag</span></dt>
+        <dd>
+          <span>{{ partIntention.limitedDriving12Ncflag }}</span>
+        </dd>
+        <dt><span>Multi Plant</span></dt>
+        <dd>
+          <span>{{ partIntention.multiPlant }}</span>
+        </dd>
+        <dt><span>Type</span></dt>
+        <dd>
+          <span>{{ partIntention.type }}</span>
+        </dd>
+        <dt><span>Successor Part Id</span></dt>
+        <dd>
+          <span>{{ partIntention.successorPartId }}</span>
+        </dd>
+        <dt><span>Plant Specific</span></dt>
+        <dd>
+          <span *ngFor="let plantSpecific of partIntention.plantSpecifics; let last = last">
+            <a [routerLink]="['/plant-specific', plantSpecific?.id, 'view']">{{ plantSpecific.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Item Reference</span></dt>
+        <dd>
+          <span *ngFor="let itemReference of partIntention.itemReferences; let last = last">
+            <a [routerLink]="['/item-reference', itemReference?.id, 'view']">{{ itemReference.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Release Package</span></dt>
+        <dd>
+          <span *ngFor="let releasePackage of partIntention.releasePackages; let last = last">
+            <a [routerLink]="['/release-package', releasePackage?.id, 'view']">{{ releasePackage.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/jhipstersampleapplication/part-intention', partIntention.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
