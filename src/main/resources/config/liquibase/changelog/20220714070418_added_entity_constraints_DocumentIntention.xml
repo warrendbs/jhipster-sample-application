@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity DocumentIntention.
+    -->
+    <changeSet id="20220714070418-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="document_intention_id"
+                                 baseTableName="rel_document_intention__release_package"
+                                 constraintName="fk_rel_document_intention__rele__document_intention_13_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="document_intention"/>
+
+        <addForeignKeyConstraint baseColumnNames="release_package_id"
+                                 baseTableName="rel_document_intention__release_package"
+                                 constraintName="fk_rel_document_intention__release_package__release_package_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="release_package"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="impactMatrix">
+      <h2 data-cy="impactMatrixDetailsHeading"><span>Impact Matrix</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ impactMatrix.id }}</span>
+        </dd>
+        <dt><span>Impact Matrix Number</span></dt>
+        <dd>
+          <span>{{ impactMatrix.impactMatrixNumber }}</span>
+        </dd>
+        <dt><span>Status</span></dt>
+        <dd>
+          <span>{{ impactMatrix.status }}</span>
+        </dd>
+        <dt><span>Revision</span></dt>
+        <dd>
+          <span>{{ impactMatrix.revision }}</span>
+        </dd>
+        <dt><span>Reviser</span></dt>
+        <dd>
+          <span>{{ impactMatrix.reviser }}</span>
+        </dd>
+        <dt><span>Revision Description</span></dt>
+        <dd>
+          <span>{{ impactMatrix.revisionDescription }}</span>
+        </dd>
+        <dt><span>Date Revised</span></dt>
+        <dd>
+          <span>{{ impactMatrix.dateRevised }}</span>
+        </dd>
+        <dt><span>Title</span></dt>
+        <dd>
+          <span>{{ impactMatrix.title }}</span>
+        </dd>
+        <dt><span>Is Auto Layout Enabled</span></dt>
+        <dd>
+          <span>{{ impactMatrix.isAutoLayoutEnabled }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/jhipstersampleapplication/impact-matrix', impactMatrix.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

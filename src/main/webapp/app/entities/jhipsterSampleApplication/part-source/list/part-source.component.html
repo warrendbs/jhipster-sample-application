@@ -1,0 +1,141 @@
+<div>
+  <h2 id="page-heading" data-cy="PartSourceHeading">
+    <span>Part Sources</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-part-source"
+        [routerLink]="['/jhipstersampleapplication/part-source/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Part Source </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="partSources?.length === 0">
+    <span>No partSources found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="partSources && partSources.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span>ID</span></th>
+          <th scope="col"><span>Product Id</span></th>
+          <th scope="col"><span>Revision</span></th>
+          <th scope="col"><span>Name</span></th>
+          <th scope="col"><span>Description</span></th>
+          <th scope="col"><span>Vqi</span></th>
+          <th scope="col"><span>Procurement Type</span></th>
+          <th scope="col"><span>Material Type</span></th>
+          <th scope="col"><span>Serial Number Profile</span></th>
+          <th scope="col"><span>Critical Configuration Item Indicator</span></th>
+          <th scope="col"><span>Regular Part Indicator</span></th>
+          <th scope="col"><span>History Indicator</span></th>
+          <th scope="col"><span>Cross Plant Status</span></th>
+          <th scope="col"><span>Cross Plant Status To Be</span></th>
+          <th scope="col"><span>Tool Pack Category</span></th>
+          <th scope="col"><span>Tc Change Control</span></th>
+          <th scope="col"><span>Sap Change Control</span></th>
+          <th scope="col"><span>Allow Bom Restructuring</span></th>
+          <th scope="col"><span>Unit Of Measure</span></th>
+          <th scope="col"><span>Item Usage</span></th>
+          <th scope="col"><span>Is Phantom</span></th>
+          <th scope="col"><span>Failure Rate</span></th>
+          <th scope="col"><span>In House Production Time</span></th>
+          <th scope="col"><span>Sl Abc Code</span></th>
+          <th scope="col"><span>Production Plant</span></th>
+          <th scope="col"><span>Limited Driving 12 Nc</span></th>
+          <th scope="col"><span>Limited Driving 12 Ncflag</span></th>
+          <th scope="col"><span>Multi Plant</span></th>
+          <th scope="col"><span>Type</span></th>
+          <th scope="col"><span>Successor Part Id</span></th>
+          <th scope="col"><span>Plant Specific</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let partSource of partSources; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/jhipstersampleapplication/part-source', partSource.id, 'view']">{{ partSource.id }}</a>
+          </td>
+          <td>{{ partSource.productId }}</td>
+          <td>{{ partSource.revision }}</td>
+          <td>{{ partSource.name }}</td>
+          <td>{{ partSource.description }}</td>
+          <td>{{ partSource.vqi }}</td>
+          <td>{{ partSource.procurementType }}</td>
+          <td>{{ partSource.materialType }}</td>
+          <td>{{ partSource.serialNumberProfile }}</td>
+          <td>{{ partSource.criticalConfigurationItemIndicator }}</td>
+          <td>{{ partSource.regularPartIndicator }}</td>
+          <td>{{ partSource.historyIndicator }}</td>
+          <td>{{ partSource.crossPlantStatus }}</td>
+          <td>{{ partSource.crossPlantStatusToBe }}</td>
+          <td>{{ partSource.toolPackCategory }}</td>
+          <td>{{ partSource.tcChangeControl }}</td>
+          <td>{{ partSource.sapChangeControl }}</td>
+          <td>{{ partSource.allowBomRestructuring }}</td>
+          <td>{{ partSource.unitOfMeasure }}</td>
+          <td>{{ partSource.itemUsage }}</td>
+          <td>{{ partSource.isPhantom }}</td>
+          <td>{{ partSource.failureRate }}</td>
+          <td>{{ partSource.inHouseProductionTime }}</td>
+          <td>{{ partSource.slAbcCode }}</td>
+          <td>{{ partSource.productionPlant }}</td>
+          <td>{{ partSource.limitedDriving12Nc }}</td>
+          <td>{{ partSource.limitedDriving12Ncflag }}</td>
+          <td>{{ partSource.multiPlant }}</td>
+          <td>{{ partSource.type }}</td>
+          <td>{{ partSource.successorPartId }}</td>
+          <td>
+            <span *ngFor="let plantSpecific of partSource.plantSpecifics; let last = last">
+              <a class="form-control-static" [routerLink]="['/plant-specific', plantSpecific.id, 'view']">{{ plantSpecific.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/jhipstersampleapplication/part-source', partSource.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/jhipstersampleapplication/part-source', partSource.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(partSource)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

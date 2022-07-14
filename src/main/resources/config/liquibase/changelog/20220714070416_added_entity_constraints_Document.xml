@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Document.
+    -->
+    <changeSet id="20220714070416-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="document_source_id"
+                                 baseTableName="document"
+                                 constraintName="fk_document__document_source_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="document_source"/>
+
+        <addForeignKeyConstraint baseColumnNames="document_intention_id"
+                                 baseTableName="document"
+                                 constraintName="fk_document__document_intention_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="document_intention"/>
+
+        <addForeignKeyConstraint baseColumnNames="document_id"
+                                 baseTableName="rel_document__item_reference"
+                                 constraintName="fk_rel_document__item_reference__document_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="document"/>
+
+        <addForeignKeyConstraint baseColumnNames="item_reference_id"
+                                 baseTableName="rel_document__item_reference"
+                                 constraintName="fk_rel_document__item_reference__item_reference_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="item_reference"/>
+
+        <addForeignKeyConstraint baseColumnNames="impact_matrix_id"
+                                 baseTableName="document"
+                                 constraintName="fk_document__impact_matrix_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="impact_matrix"/>
+
+        <addForeignKeyConstraint baseColumnNames="document_type_id"
+                                 baseTableName="document"
+                                 constraintName="fk_document__document_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="document_type"/>
+    </changeSet>
+</databaseChangeLog>

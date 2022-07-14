@@ -1,0 +1,61 @@
+{
+  "applications": "*",
+  "changelogDate": "20220714070414",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "release_package",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "releasePackageNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "releasePackageTitle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ecn",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "jhipsterSampleApplication",
+  "name": "ReleasePackage",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "bomIntention",
+      "otherEntityRelationshipName": "releasePackage",
+      "ownerSide": false,
+      "relationshipName": "bomIntention",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "documentIntention",
+      "otherEntityRelationshipName": "releasePackage",
+      "ownerSide": false,
+      "relationshipName": "documentIntention",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "partIntention",
+      "otherEntityRelationshipName": "releasePackage",
+      "ownerSide": false,
+      "relationshipName": "partIntention",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

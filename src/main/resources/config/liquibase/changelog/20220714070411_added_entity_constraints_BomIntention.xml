@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity BomIntention.
+    -->
+    <changeSet id="20220714070411-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="bom_intention_id"
+                                 baseTableName="rel_bom_intention__bom_child"
+                                 constraintName="fk_rel_bom_intention__bom_child__bom_intention_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bom_intention"/>
+
+        <addForeignKeyConstraint baseColumnNames="bom_child_id"
+                                 baseTableName="rel_bom_intention__bom_child"
+                                 constraintName="fk_rel_bom_intention__bom_child__bom_child_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bom_child"/>
+
+        <addForeignKeyConstraint baseColumnNames="bom_intention_id"
+                                 baseTableName="rel_bom_intention__release_package"
+                                 constraintName="fk_rel_bom_intention__release_package__bom_intention_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bom_intention"/>
+
+        <addForeignKeyConstraint baseColumnNames="release_package_id"
+                                 baseTableName="rel_bom_intention__release_package"
+                                 constraintName="fk_rel_bom_intention__release_package__release_package_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="release_package"/>
+    </changeSet>
+</databaseChangeLog>

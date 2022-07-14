@@ -1,0 +1,92 @@
+<div>
+  <h2 id="page-heading" data-cy="BomIntentionHeading">
+    <span>Bom Intentions</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-bom-intention"
+        [routerLink]="['/jhipstersampleapplication/bom-intention/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Bom Intention </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="bomIntentions?.length === 0">
+    <span>No bomIntentions found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="bomIntentions && bomIntentions.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span>ID</span></th>
+          <th scope="col"><span>Type</span></th>
+          <th scope="col"><span>Bom Child</span></th>
+          <th scope="col"><span>Release Package</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bomIntention of bomIntentions; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/jhipstersampleapplication/bom-intention', bomIntention.id, 'view']">{{ bomIntention.id }}</a>
+          </td>
+          <td>{{ bomIntention.type }}</td>
+          <td>
+            <span *ngFor="let bomChild of bomIntention.bomChildren; let last = last">
+              <a class="form-control-static" [routerLink]="['/bom-child', bomChild.id, 'view']">{{ bomChild.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td>
+            <span *ngFor="let releasePackage of bomIntention.releasePackages; let last = last">
+              <a class="form-control-static" [routerLink]="['/release-package', releasePackage.id, 'view']">{{ releasePackage.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/jhipstersampleapplication/bom-intention', bomIntention.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/jhipstersampleapplication/bom-intention', bomIntention.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(bomIntention)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

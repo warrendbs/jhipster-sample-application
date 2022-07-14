@@ -1,0 +1,45 @@
+{
+  "applications": "*",
+  "changelogDate": "20220714070411",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "bom_intention",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "jhipsterSampleApplication",
+  "name": "BomIntention",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "bomChild",
+      "otherEntityRelationshipName": "bomIntention",
+      "ownerSide": true,
+      "relationshipName": "bomChild",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "releasePackage",
+      "otherEntityRelationshipName": "bomIntention",
+      "ownerSide": true,
+      "relationshipName": "releasePackage",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "bom",
+      "otherEntityRelationshipName": "bomIntention",
+      "ownerSide": false,
+      "relationshipName": "bom",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

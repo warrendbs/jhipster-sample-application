@@ -15,7 +15,32 @@
     <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070407_added_entity_ImpactMatrix.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070408_added_entity_Context.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070409_added_entity_Bom.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070410_added_entity_BomSource.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070411_added_entity_BomIntention.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070412_added_entity_BomChild.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070413_added_entity_ItemReference.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070414_added_entity_ReleasePackage.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070415_added_entity_DocumentType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070416_added_entity_Document.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070417_added_entity_DocumentSource.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070418_added_entity_DocumentIntention.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070419_added_entity_Part.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070420_added_entity_PartSource.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070421_added_entity_PlantSpecific.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070422_added_entity_PartIntention.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20220714070408_added_entity_constraints_Context.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070409_added_entity_constraints_Bom.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070410_added_entity_constraints_BomSource.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070411_added_entity_constraints_BomIntention.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070416_added_entity_constraints_Document.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070418_added_entity_constraints_DocumentIntention.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070419_added_entity_constraints_Part.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070420_added_entity_constraints_PartSource.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220714070422_added_entity_constraints_PartIntention.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity PartIntention.
+    -->
+    <changeSet id="20220714070422-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="part_intention_id"
+                                 baseTableName="rel_part_intention__plant_specific"
+                                 constraintName="fk_rel_part_intention__plant_specific__part_intention_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="part_intention"/>
+
+        <addForeignKeyConstraint baseColumnNames="plant_specific_id"
+                                 baseTableName="rel_part_intention__plant_specific"
+                                 constraintName="fk_rel_part_intention__plant_specific__plant_specific_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="plant_specific"/>
+
+        <addForeignKeyConstraint baseColumnNames="part_intention_id"
+                                 baseTableName="rel_part_intention__item_reference"
+                                 constraintName="fk_rel_part_intention__item_reference__part_intention_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="part_intention"/>
+
+        <addForeignKeyConstraint baseColumnNames="item_reference_id"
+                                 baseTableName="rel_part_intention__item_reference"
+                                 constraintName="fk_rel_part_intention__item_reference__item_reference_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="item_reference"/>
+
+        <addForeignKeyConstraint baseColumnNames="part_intention_id"
+                                 baseTableName="rel_part_intention__release_package"
+                                 constraintName="fk_rel_part_intention__release_package__part_intention_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="part_intention"/>
+
+        <addForeignKeyConstraint baseColumnNames="release_package_id"
+                                 baseTableName="rel_part_intention__release_package"
+                                 constraintName="fk_rel_part_intention__release_package__release_package_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="release_package"/>
+    </changeSet>
+</databaseChangeLog>

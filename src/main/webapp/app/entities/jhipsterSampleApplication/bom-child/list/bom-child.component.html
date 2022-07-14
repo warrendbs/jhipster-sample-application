@@ -1,0 +1,84 @@
+<div>
+  <h2 id="page-heading" data-cy="BomChildHeading">
+    <span>Bom Children</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-bom-child"
+        [routerLink]="['/jhipstersampleapplication/bom-child/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Bom Child </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="bomChildren?.length === 0">
+    <span>No bomChildren found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="bomChildren && bomChildren.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span>ID</span></th>
+          <th scope="col"><span>Product Id</span></th>
+          <th scope="col"><span>Revision</span></th>
+          <th scope="col"><span>Quantity</span></th>
+          <th scope="col"><span>Relation Type</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bomChild of bomChildren; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/jhipstersampleapplication/bom-child', bomChild.id, 'view']">{{ bomChild.id }}</a>
+          </td>
+          <td>{{ bomChild.productId }}</td>
+          <td>{{ bomChild.revision }}</td>
+          <td>{{ bomChild.quantity }}</td>
+          <td>{{ bomChild.relationType }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/jhipstersampleapplication/bom-child', bomChild.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/jhipstersampleapplication/bom-child', bomChild.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(bomChild)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,151 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="partSource">
+      <h2 data-cy="partSourceDetailsHeading"><span>Part Source</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ partSource.id }}</span>
+        </dd>
+        <dt><span>Product Id</span></dt>
+        <dd>
+          <span>{{ partSource.productId }}</span>
+        </dd>
+        <dt><span>Revision</span></dt>
+        <dd>
+          <span>{{ partSource.revision }}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+          <span>{{ partSource.name }}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+          <span>{{ partSource.description }}</span>
+        </dd>
+        <dt><span>Vqi</span></dt>
+        <dd>
+          <span>{{ partSource.vqi }}</span>
+        </dd>
+        <dt><span>Procurement Type</span></dt>
+        <dd>
+          <span>{{ partSource.procurementType }}</span>
+        </dd>
+        <dt><span>Material Type</span></dt>
+        <dd>
+          <span>{{ partSource.materialType }}</span>
+        </dd>
+        <dt><span>Serial Number Profile</span></dt>
+        <dd>
+          <span>{{ partSource.serialNumberProfile }}</span>
+        </dd>
+        <dt><span>Critical Configuration Item Indicator</span></dt>
+        <dd>
+          <span>{{ partSource.criticalConfigurationItemIndicator }}</span>
+        </dd>
+        <dt><span>Regular Part Indicator</span></dt>
+        <dd>
+          <span>{{ partSource.regularPartIndicator }}</span>
+        </dd>
+        <dt><span>History Indicator</span></dt>
+        <dd>
+          <span>{{ partSource.historyIndicator }}</span>
+        </dd>
+        <dt><span>Cross Plant Status</span></dt>
+        <dd>
+          <span>{{ partSource.crossPlantStatus }}</span>
+        </dd>
+        <dt><span>Cross Plant Status To Be</span></dt>
+        <dd>
+          <span>{{ partSource.crossPlantStatusToBe }}</span>
+        </dd>
+        <dt><span>Tool Pack Category</span></dt>
+        <dd>
+          <span>{{ partSource.toolPackCategory }}</span>
+        </dd>
+        <dt><span>Tc Change Control</span></dt>
+        <dd>
+          <span>{{ partSource.tcChangeControl }}</span>
+        </dd>
+        <dt><span>Sap Change Control</span></dt>
+        <dd>
+          <span>{{ partSource.sapChangeControl }}</span>
+        </dd>
+        <dt><span>Allow Bom Restructuring</span></dt>
+        <dd>
+          <span>{{ partSource.allowBomRestructuring }}</span>
+        </dd>
+        <dt><span>Unit Of Measure</span></dt>
+        <dd>
+          <span>{{ partSource.unitOfMeasure }}</span>
+        </dd>
+        <dt><span>Item Usage</span></dt>
+        <dd>
+          <span>{{ partSource.itemUsage }}</span>
+        </dd>
+        <dt><span>Is Phantom</span></dt>
+        <dd>
+          <span>{{ partSource.isPhantom }}</span>
+        </dd>
+        <dt><span>Failure Rate</span></dt>
+        <dd>
+          <span>{{ partSource.failureRate }}</span>
+        </dd>
+        <dt><span>In House Production Time</span></dt>
+        <dd>
+          <span>{{ partSource.inHouseProductionTime }}</span>
+        </dd>
+        <dt><span>Sl Abc Code</span></dt>
+        <dd>
+          <span>{{ partSource.slAbcCode }}</span>
+        </dd>
+        <dt><span>Production Plant</span></dt>
+        <dd>
+          <span>{{ partSource.productionPlant }}</span>
+        </dd>
+        <dt><span>Limited Driving 12 Nc</span></dt>
+        <dd>
+          <span>{{ partSource.limitedDriving12Nc }}</span>
+        </dd>
+        <dt><span>Limited Driving 12 Ncflag</span></dt>
+        <dd>
+          <span>{{ partSource.limitedDriving12Ncflag }}</span>
+        </dd>
+        <dt><span>Multi Plant</span></dt>
+        <dd>
+          <span>{{ partSource.multiPlant }}</span>
+        </dd>
+        <dt><span>Type</span></dt>
+        <dd>
+          <span>{{ partSource.type }}</span>
+        </dd>
+        <dt><span>Successor Part Id</span></dt>
+        <dd>
+          <span>{{ partSource.successorPartId }}</span>
+        </dd>
+        <dt><span>Plant Specific</span></dt>
+        <dd>
+          <span *ngFor="let plantSpecific of partSource.plantSpecifics; let last = last">
+            <a [routerLink]="['/plant-specific', plantSpecific?.id, 'view']">{{ plantSpecific.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/jhipstersampleapplication/part-source', partSource.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

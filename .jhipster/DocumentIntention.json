@@ -1,0 +1,62 @@
+{
+  "applications": "*",
+  "changelogDate": "20220714070418",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "document_intention",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "changeIndicator",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subtype",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "group",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sheet",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "jhipsterSampleApplication",
+  "name": "DocumentIntention",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "releasePackage",
+      "otherEntityRelationshipName": "documentIntention",
+      "ownerSide": true,
+      "relationshipName": "releasePackage",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "document",
+      "otherEntityRelationshipName": "documentIntention",
+      "ownerSide": false,
+      "relationshipName": "document",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

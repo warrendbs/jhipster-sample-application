@@ -1,0 +1,57 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="bom">
+      <h2 data-cy="bomDetailsHeading"><span>Bom</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ bom.id }}</span>
+        </dd>
+        <dt><span>Status</span></dt>
+        <dd>
+          <span>{{ bom.status }}</span>
+        </dd>
+        <dt><span>Bom Source</span></dt>
+        <dd>
+          <div *ngIf="bom.bomSource">
+            <a [routerLink]="['/bom-source', bom.bomSource?.id, 'view']">{{ bom.bomSource?.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Bom Intention</span></dt>
+        <dd>
+          <div *ngIf="bom.bomIntention">
+            <a [routerLink]="['/bom-intention', bom.bomIntention?.id, 'view']">{{ bom.bomIntention?.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Item Reference</span></dt>
+        <dd>
+          <span *ngFor="let itemReference of bom.itemReferences; let last = last">
+            <a [routerLink]="['/item-reference', itemReference?.id, 'view']">{{ itemReference.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Impact Matrix</span></dt>
+        <dd>
+          <div *ngIf="bom.impactMatrix">
+            <a [routerLink]="['/impact-matrix', bom.impactMatrix?.id, 'view']">{{ bom.impactMatrix?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/jhipstersampleapplication/bom', bom.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

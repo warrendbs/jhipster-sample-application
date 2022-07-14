@@ -1,0 +1,46 @@
+{
+  "applications": "*",
+  "changelogDate": "20220714070421",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "plant_specific",
+  "fields": [
+    {
+      "fieldName": "objectDependancy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "refMaterial",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isDiscontinued",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "jhipsterSampleApplication",
+  "name": "PlantSpecific",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "partSource",
+      "otherEntityRelationshipName": "plantSpecific",
+      "ownerSide": false,
+      "relationshipName": "partSource",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "partIntention",
+      "otherEntityRelationshipName": "plantSpecific",
+      "ownerSide": false,
+      "relationshipName": "partIntention",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

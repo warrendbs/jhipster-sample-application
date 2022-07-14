@@ -1,0 +1,150 @@
+{
+  "applications": "*",
+  "changelogDate": "20220714070420",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "part_source",
+  "fields": [
+    {
+      "fieldName": "productId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "revision",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "vqi",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "procurementType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "materialType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "serialNumberProfile",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "criticalConfigurationItemIndicator",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "regularPartIndicator",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "historyIndicator",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "crossPlantStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "crossPlantStatusToBe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "toolPackCategory",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tcChangeControl",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "sapChangeControl",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "allowBomRestructuring",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "unitOfMeasure",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "itemUsage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isPhantom",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "failureRate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "inHouseProductionTime",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "slAbcCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productionPlant",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "limitedDriving12Nc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "limitedDriving12Ncflag",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "multiPlant",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "successorPartId",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "jhipsterSampleApplication",
+  "name": "PartSource",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "plantSpecific",
+      "otherEntityRelationshipName": "partSource",
+      "ownerSide": true,
+      "relationshipName": "plantSpecific",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "part",
+      "otherEntityRelationshipName": "partSource",
+      "ownerSide": false,
+      "relationshipName": "part",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

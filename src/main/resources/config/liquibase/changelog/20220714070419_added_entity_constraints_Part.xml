@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Part.
+    -->
+    <changeSet id="20220714070419-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="part_source_id"
+                                 baseTableName="part"
+                                 constraintName="fk_part__part_source_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="part_source"/>
+
+        <addForeignKeyConstraint baseColumnNames="part_intention_id"
+                                 baseTableName="part"
+                                 constraintName="fk_part__part_intention_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="part_intention"/>
+
+        <addForeignKeyConstraint baseColumnNames="impact_matrix_id"
+                                 baseTableName="part"
+                                 constraintName="fk_part__impact_matrix_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="impact_matrix"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20220714070410",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "bom_source",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "jhipsterSampleApplication",
+  "name": "BomSource",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "bomChild",
+      "otherEntityRelationshipName": "bomSource",
+      "ownerSide": true,
+      "relationshipName": "bomChild",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "bom",
+      "otherEntityRelationshipName": "bomSource",
+      "ownerSide": false,
+      "relationshipName": "bom",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

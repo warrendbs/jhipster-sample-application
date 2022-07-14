@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Bom.
+    -->
+    <changeSet id="20220714070409-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="bom_source_id"
+                                 baseTableName="bom"
+                                 constraintName="fk_bom__bom_source_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bom_source"/>
+
+        <addForeignKeyConstraint baseColumnNames="bom_intention_id"
+                                 baseTableName="bom"
+                                 constraintName="fk_bom__bom_intention_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bom_intention"/>
+
+        <addForeignKeyConstraint baseColumnNames="bom_id"
+                                 baseTableName="rel_bom__item_reference"
+                                 constraintName="fk_rel_bom__item_reference__bom_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bom"/>
+
+        <addForeignKeyConstraint baseColumnNames="item_reference_id"
+                                 baseTableName="rel_bom__item_reference"
+                                 constraintName="fk_rel_bom__item_reference__item_reference_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="item_reference"/>
+
+        <addForeignKeyConstraint baseColumnNames="impact_matrix_id"
+                                 baseTableName="bom"
+                                 constraintName="fk_bom__impact_matrix_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="impact_matrix"/>
+    </changeSet>
+</databaseChangeLog>

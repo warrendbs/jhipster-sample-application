@@ -1,0 +1,52 @@
+{
+  "applications": "*",
+  "changelogDate": "20220714070419",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "part",
+  "fields": [
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "changeIndication",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isParentPartBomChanged",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "jhipsterSampleApplication",
+  "name": "Part",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "partSource",
+      "otherEntityRelationshipName": "part",
+      "ownerSide": true,
+      "relationshipName": "partSource",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "partIntention",
+      "otherEntityRelationshipName": "part",
+      "ownerSide": true,
+      "relationshipName": "partIntention",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "impactMatrix",
+      "otherEntityRelationshipName": "part",
+      "relationshipName": "impactMatrix",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}
